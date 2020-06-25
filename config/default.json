@@ -1,0 +1,7 @@
+{
+  "dbConfig": {
+    "routing": "mongodb+srv",
+    "host": "admin:Te@mPenny247@rex-mongo-cluster-hsd47.mongodb.net/",
+    "dbName": "kente"
+  }
+}
