@@ -2,7 +2,8 @@
   "type": "module",
   "name": "kente-kouch",
   "version": "1.0.0",
-  "description": "",
+  "description": "a blogging site",
+  "repository": "github.com/rexfordnana/kente-kouch.git",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
