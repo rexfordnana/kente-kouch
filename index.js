@@ -1,27 +1,18 @@
 import express from 'express'
 import ejs from 'ejs'
+import db from './models/dbInit.js'
+import pagesRouter from './routes/pages.js'
+
+db.on('error', console.error.bind(console, 'connection error:'));
 
 const app = express();
+const port = 3000 | process.env.port;
 
-//use middleware
+//middleware to use ejs and view static files
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 //define routes
-app.get('/', (req,res)=>{
-    res.render('pages/index');
-});
+app.use('/', pagesRouter);
 
-app.get('/about', (req,res)=>{
-    res.render('pages/about');
-});
-
-app.get('/contact', (req,res)=>{
-    res.render('pages/contact');
-});
-
-app.get('/post', (req,res)=>{
-    res.render('pages/post');
-});
-
-app.listen(3000, () => console.log('listening on port 3000...'));
+app.listen(port, () => console.log(`listening on port ${port}...`));
