@@ -1,10 +1,12 @@
 import express from 'express'
 import BlogPost from '../models/BlogPost.js'
+import {childLogger} from '../lib/logger.js'
 
 const pagesRouter = express.Router();
+const log = childLogger({op: 'routes'});
 pagesRouter.get('/', async (req,res)=>{
     const blogPosts = await BlogPost.find({})
-    console.log(blogPosts)
+    log.info(blogPosts);
     res.render('pages/index', {blogs: blogPosts});
 });
 

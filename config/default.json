@@ -1,7 +1,16 @@
 {
+  "logger": {
+    "app_id": "Yeahman",
+    "streams": {
+      "stdout": {
+        "level": "info"
+      }
+    }
+  },
+  "env": "dev",
   "dbConfig": {
     "routing": "mongodb+srv",
-    "host": "admin:Te@mPenny247@rex-mongo-cluster-hsd47.mongodb.net/",
+    "host": "@rex-mongo-cluster-hsd47.mongodb.net/",
     "dbName": "kente",
     "options": {
       "useNewUrlParser": true,
