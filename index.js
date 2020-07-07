@@ -2,17 +2,19 @@ import express from 'express'
 import ejs from 'ejs'
 import db from './models/dbInit.js'
 import pagesRouter from './routes/pages.js'
-import {defaultLog, childLogger} from './lib/logger.js'
+import {childLogger} from './lib/logger.js'
+import bodyParser from 'body-parser'
 
 db.on('error', console.error.bind(console, 'connection error:'));
 
 const app = express();
 const port = 3000 | process.env.port;
 
-//middleware to use ejs and view static files
+//use middleware
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
 //define routes
 app.use('/', pagesRouter);
 

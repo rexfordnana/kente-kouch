@@ -22,4 +22,18 @@ pagesRouter.get('/post', (req,res)=>{
     res.render('pages/post');
 });
 
+pagesRouter.get('/post/new', (req,res)=>{
+    // log.info(req.body);
+    res.render('pages/create');
+    // res.redirect('pages/index');
+});
+
+pagesRouter.post('/posts/store', async (req,res)=>{
+    log.info('We in the posts');
+    const newPost = new BlogPost(req.body);
+    console.log(newPost)
+    await newPost.save();
+    res.redirect('/');
+});
+
 export default pagesRouter
