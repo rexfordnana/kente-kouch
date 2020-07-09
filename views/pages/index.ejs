@@ -15,19 +15,19 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        <% for(var i=0; i<blogs.length; i++){%>
+        <% for(var i=0; i<blogPosts.length; i++){%>
           <div class="post-preview">
-            <a href="/post">
+            <a href="/post/get/<%= blogPosts[i]._id %>">
               <h2 class="post-title">
-                <%= blogs[i].title %>
+                <%= blogPosts[i].title %>
               </h2>
               <h3 class="post-subtitle">
-                <%= blogs[i].body %>
+                <%= blogPosts[i].body.substring(0, 50)%> ...
               </h3>
             </a>
             <p class="post-meta">Posted by
-              <a href="#"><%= blogs[i].author %></a>
-              on <%= blogs[i].dates %></p>
+              <a href="#"><%= blogPosts[i].author %></a>
+              on <%= blogPosts[i].date.toDateString() %></p>
           </div>
           <hr>
           <%} %>

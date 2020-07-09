@@ -7,7 +7,7 @@ const log = childLogger({op: 'routes'});
 pagesRouter.get('/', async (req,res)=>{
     const blogPosts = await BlogPost.find({})
     log.info(blogPosts);
-    res.render('pages/index', {blogs: blogPosts});
+    res.render('pages/index', {blogPosts});
 });
 
 pagesRouter.get('/about', (req,res)=>{
@@ -18,8 +18,10 @@ pagesRouter.get('/contact', (req,res)=>{
     res.render('pages/contact');
 });
 
-pagesRouter.get('/post', (req,res)=>{
-    res.render('pages/post');
+pagesRouter.get('/post/get/:id', async (req,res)=>{
+    log.info(req.params)
+    const blogpost = await BlogPost.findById(req.params.id)
+    res.render('pages/post',{blogpost});
 });
 
 pagesRouter.get('/post/new', (req,res)=>{

@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 //define routes
 app.use('/', pagesRouter);
 
-const log = childLogger({op: 'test'});
+const log = childLogger({op: 'In index js'});
 log.info('starting app ...')
 app.listen(port, () => {
     log.info({port: port}, 'App started and listening ...')
